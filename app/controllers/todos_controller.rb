@@ -3,7 +3,11 @@ class TodosController < ApplicationController
 
 	def create
 		todo = Todo.new(todo_params)
-		render json: todo, status: 201
+		if todo.save
+			render json: todo, status: 201
+		else
+			render json: {errors: category.errors}, status: :unprocessable_entity
+		end
 	end
 
 	def update
