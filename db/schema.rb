@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20210118141146) do
 
   create_table "todos", force: :cascade do |t|
     t.string "text"
-    t.boolean "isComplited"
+    t.boolean "isComplited", default: false, null: false
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

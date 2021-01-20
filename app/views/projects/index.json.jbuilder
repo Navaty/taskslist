@@ -1,9 +1,8 @@
-json.array! @projects do |obj|
-	json.id obj.id
-	json.title obj.title
+json.array! @projects do |project|
+	json.extract! project, :id, :title
 	json.todos do
-		json.id obj.todos.id
-		json.text obj.todos.text
-		json.isComplited obj.todos.isCompleted
+		json.array! project.todos do |todo|
+				json.extract! todo, :id, :text, :isComplited
+		end
 	end
 end
