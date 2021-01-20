@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 		if todo.save
 			render json: todo, status: 201
 		else
-			render json: {errors: category.errors}, status: :unprocessable_entity
+			render json: {errors: todo.errors}, status: :unprocessable_entity
 		end
 	end
 
@@ -17,7 +17,7 @@ class TodosController < ApplicationController
 
 	private	
 	def todo_params
-		params.require(:todo).permit(:text, :project_id, :isComplited, :projects_attributes => [:title])
+		params.require(:todo).permit(:text, :project_id, :isComplited, :project_attributes => [:title])
 	end
 
 	def set_todo

@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: testapp
-  username: obltest
-  password: <%= ENV['OBLTEST_DATABASE_PASSWORD'] %>

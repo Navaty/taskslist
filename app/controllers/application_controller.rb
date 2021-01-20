@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :ensure_json_request
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
@@ -16,9 +15,5 @@ class ApplicationController < ActionController::Base
     render json: { error: exception.message }, status: :not_found
   end
 
-  def ensure_json_request  
-  	return if request.format == :json
-  	render :nothing => true, :status => 406  
-  end 
 
 end
