@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
    rescue_from ActionController::RoutingError, with: :render_not_found_response
 
-
+  #just for test task
   #protect_from_forgery with: :exception
 
   def render_unprocessable_entity_response(exception)

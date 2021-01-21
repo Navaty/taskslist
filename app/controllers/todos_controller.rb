@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-	before_action :set_todo, only: [:show, :update]
+	before_action :set_todo, only: [:update]
 
 	def create
 		todo = Todo.new(todo_params)
